@@ -12,27 +12,27 @@ services:
     networks:
       - template-private-network
 
-  template:
-    container_name: template
-    hostname: template
-    image: template:dev
+#   template:
+#     container_name: template
+#     hostname: template
+#     image: template:dev
 
-    build:
-      context: .
-      dockerfile: .docker/development.dockerfile
-    volumes:
-      - .:/opt/app
-      - /opt/app/node_modules
-    ports:
-      - "3005:3000"
-    working_dir: /opt/app
-    environment:
-      NODE_ENV: dev
-    networks:
-      - template-private-network
-    entrypoint: npm run start:dev
-    depends_on:
-      - postgres
+#     build:
+#       context: .
+#       dockerfile: .docker/development.dockerfile
+#     volumes:
+#       - .:/opt/app
+#       - /opt/app/node_modules
+#     ports:
+#       - "3005:3000"
+#     working_dir: /opt/app
+#     environment:
+#       NODE_ENV: dev
+#     networks:
+#       - template-private-network
+#     entrypoint: npm run start:dev
+#     depends_on:
+#       - postgres
 
 
 networks:
