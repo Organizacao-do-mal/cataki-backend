@@ -1,7 +1,10 @@
-import { Request, Response, Router } from 'express'
+import { Router } from 'express'
+
+import { registerCollector } from './http/controllers/collector-controller'
 
 export const router = Router()
 
-router.get('/', (req: Request, res: Response) => {
-  res.status(200).send({ message: 'base route' })
-})
+const apiString = '/cataki-api/v1/'
+
+const collectorApiString = apiString + 'collector/'
+router.post(collectorApiString, registerCollector)
